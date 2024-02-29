@@ -1,4 +1,7 @@
+import 'package:fintech_app/presentation/commonWidgets/app_button.dart';
+import 'package:fintech_app/presentation/resources/go_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PageIndicator extends StatelessWidget {
   const PageIndicator({
@@ -19,41 +22,24 @@ class PageIndicator extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          IconButton(
-            splashRadius: 16.0,
-            padding: EdgeInsets.zero,
-            onPressed: () {
-              if (currentPageIndex == 0) {
-                return;
-              }
-              onUpdateCurrentPageIndex(currentPageIndex - 1);
-            },
-            icon: const Icon(
-              Icons.arrow_left_rounded,
-              size: 32.0,
-            ),
-          ),
           TabPageSelector(
             controller: tabController,
             color: colorScheme.background,
-            selectedColor: colorScheme.primary,
+            selectedColor: Colors.black,
           ),
-          IconButton(
-            splashRadius: 16.0,
-            padding: EdgeInsets.zero,
-            onPressed: () {
+          AppButton(
+            onPressCallback: () {
               if (currentPageIndex == 2) {
+                context.go(Routes.loginScreen);
                 return;
               }
+
               onUpdateCurrentPageIndex(currentPageIndex + 1);
             },
-            icon: const Icon(
-              Icons.arrow_right_rounded,
-              size: 32.0,
-            ),
-          ),
+            text: "Next",
+          )
         ],
       ),
     );

@@ -1,8 +1,10 @@
 import 'package:fintech_app/data/dummy_data/on_boarding_screen.dart';
 import 'package:fintech_app/presentation/onboarding/components/on_boarding_tile.dart';
 import 'package:fintech_app/presentation/resources/app_scafold.dart';
+import 'package:fintech_app/presentation/resources/go_routes.dart';
 import 'package:fintech_app/presentation/resources/page_view_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
