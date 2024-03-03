@@ -32,7 +32,7 @@ class PageIndicator extends StatelessWidget {
           AppButton(
             onPressCallback: () {
               if (currentPageIndex == 2) {
-                context.go(Routes.loginScreen);
+                context.go(Routes.signInScreen);
                 return;
               }
 
