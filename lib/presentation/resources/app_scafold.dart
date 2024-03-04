@@ -5,9 +5,11 @@ class AppScaffold extends StatelessWidget {
   final Widget child;
   final Widget? bottomNavigationBar;
   final bool? padding;
+  final PreferredSizeWidget? appbar;
   const AppScaffold({
     required this.child,
     this.bottomNavigationBar,
+    this.appbar,
     this.padding = false,
     super.key,
   });
@@ -16,6 +18,7 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: appbar,
         backgroundColor: Theme.of(context).colorScheme.background,
         body: Padding(
           padding: padding!
