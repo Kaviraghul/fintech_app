@@ -19,7 +19,7 @@ class AppBottomNavBar extends StatelessWidget {
                 .read<BottomNavBarBloc>()
                 .add(BottomNavBarIndexChanged(index));
           },
-          currentIndex: state is BottomNavBarIndex ? state.index : 0,
+          currentIndex: state is BottomNavBarIndex ? state.index : 2,
           selectedFontSize: 13,
           unselectedFontSize: 13,
           items: const [

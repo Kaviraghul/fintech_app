@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
           late String? intialRoute;
-          if (state.authenticationStatus ==
+          if (state.authenticationStatus !=
               AuthenticationStatus.authenticated) {
             intialRoute = Routes.homeScreen;
           } else {
