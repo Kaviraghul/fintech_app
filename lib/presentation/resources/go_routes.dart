@@ -1,3 +1,4 @@
+import 'package:fintech_app/presentation/authentication/authentication_screen.dart';
 import 'package:fintech_app/presentation/authentication/sign_in/sign_in_screen.dart';
 import 'package:fintech_app/presentation/authentication/sign_up/sign_up_screen.dart';
 import 'package:fintech_app/presentation/home/home.dart';
@@ -7,6 +8,7 @@ import 'package:go_router/go_router.dart';
 
 class Routes {
   static String onboardingScreen = '/';
+  static String userAuthScreen = '/user_auth';
   static String signInScreen = '/signIn';
   static String signUpScreen = '/signUp';
   static String homeScreen = '/home';
@@ -24,6 +26,12 @@ class AppRoutes {
           path: Routes.onboardingScreen,
           builder: (BuildContext context, GoRouterState state) {
             return const OnBoardingScreen();
+          },
+        ),
+        GoRoute(
+          path: Routes.userAuthScreen,
+          builder: (BuildContext context, GoRouterState state) {
+            return const UserAuthentication();
           },
         ),
         GoRoute(

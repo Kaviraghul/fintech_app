@@ -4,15 +4,23 @@ import 'package:flutter/material.dart';
 class AppScaffold extends StatelessWidget {
   final Widget child;
   final Widget? bottomNavigationBar;
-  const AppScaffold({required this.child,  this.bottomNavigationBar ,super.key,});
+  final bool? padding;
+  const AppScaffold({
+    required this.child,
+    this.bottomNavigationBar,
+    this.padding = false,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 230, 239, 247),
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: Padding(
-          padding: const EdgeInsets.all(AppValues.s5),
+          padding: padding!
+              ? const EdgeInsets.all(AppValues.s5)
+              : const EdgeInsets.all(0),
           child: child,
         ),
         bottomNavigationBar: bottomNavigationBar,
