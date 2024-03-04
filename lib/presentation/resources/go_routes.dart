@@ -1,7 +1,7 @@
 import 'package:fintech_app/presentation/authentication/authentication_screen.dart';
 import 'package:fintech_app/presentation/authentication/sign_in/sign_in_screen.dart';
 import 'package:fintech_app/presentation/authentication/sign_up/sign_up_screen.dart';
-import 'package:fintech_app/presentation/home/home.dart';
+import 'package:fintech_app/presentation/home/home_screen.dart';
 import 'package:fintech_app/presentation/onboarding/on_boarding.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -49,7 +49,7 @@ class AppRoutes {
         GoRoute(
           path: Routes.homeScreen,
           builder: (BuildContext context, GoRouterState state) {
-            return const Home();
+            return const HomeScreen();
           },
         ),
       ],
