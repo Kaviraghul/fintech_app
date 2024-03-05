@@ -8,7 +8,12 @@ class GoalsAndAssetsBloc
     extends Bloc<GoalsAndAssetsEvent, GoalsAndAssetsState> {
   GoalsAndAssetsBloc() : super(GoalsAndAssetsInitial()) {
     on<GoalAndAssetsUserViewEvent>((event, emit) {
-      emit(GoalsAndAssetsDisplayOption(viewSection: event.viewSection));
+      emit(GoalsAndAssetViewOption(viewSection: event.viewSection));
+    });
+
+    on<GoalAndAssetsDisplayOntionChangedEvent>((event, emit) {
+      print(event.displayOption);
+      emit(GoalsAndAssetsDisplayOption(displayOption: event.displayOption));
     });
   }
 }

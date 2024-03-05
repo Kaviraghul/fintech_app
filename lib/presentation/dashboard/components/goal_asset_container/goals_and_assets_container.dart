@@ -1,5 +1,3 @@
-import 'package:fintech_app/gen/assets.gen.dart';
-import 'package:fintech_app/presentation/commonWidgets/app_button.dart';
 import 'package:fintech_app/presentation/dashboard/components/goal_asset_container/bloc/goals_and_assets_bloc.dart';
 import 'package:fintech_app/presentation/dashboard/components/user_assets/user_assets.dart';
 import 'package:fintech_app/presentation/dashboard/components/user_goals/user_goals.dart';
@@ -7,7 +5,6 @@ import 'package:fintech_app/presentation/resources/app_buttons.dart';
 import 'package:fintech_app/presentation/resources/app_colors.dart';
 import 'package:fintech_app/presentation/resources/app_values.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GoalsAndAssetsContainer extends StatefulWidget {
@@ -69,26 +66,35 @@ class _GoalsAndAssetsContainerState extends State<GoalsAndAssetsContainer> {
                         ],
                       ),
                       Switch.adaptive(
-                        value: false,
-                        thumbIcon: MaterialStateProperty.resolveWith<Icon?>(
-                            (Set<MaterialState> states) {
-                          if (states.contains(MaterialState.disabled)) {
-                            return const Icon(
-                              Icons.menu,
-                              color: Colors.white,
-                              size: AppValues.s18,
-                            );
-                          } else {
-                            return const Icon(
-                              Icons.access_alarm,
-                              color: Colors.white,
-                              size: AppValues.s18,
-                            );
-                          }
-                        }),
+                        // thumbIcon: MaterialStateProperty.resolveWith<Icon?>(
+                        //     (Set<MaterialState> states) {
+                        //   if (states.contains(MaterialState.disabled)) {
+                        //     return const Icon(
+                        //       Icons.menu,
+                        //       color: Colors.white,
+                        //       size: AppValues.s18,
+                        //     );
+                        //   } else {
+                        //     return const Icon(
+                        //       Icons.access_alarm,
+                        //       color: Colors.white,
+                        //       size: AppValues.s18,
+                        //     );
+                        //   }
+                        // }),
                         onChanged: (bool value) {
-                          setState(() {});
+                          context.read<GoalsAndAssetsBloc>().add(
+                                GoalAndAssetsDisplayOntionChangedEvent(
+                                  displayOption: value
+                                      ? DisplayOption.liner
+                                      : DisplayOption.grid,
+                                ),
+                              );
                         },
+                        value: state is GoalsAndAssetsDisplayOption ==
+                                DisplayOption.liner
+                            ? true
+                            : false,
                       ),
                     ],
                   ),
@@ -96,9 +102,12 @@ class _GoalsAndAssetsContainerState extends State<GoalsAndAssetsContainer> {
                     color: AppColors.dividerGrey,
                   ),
                   viewSectionWidget(
-                    state is GoalsAndAssetsDisplayOption
+                    state is GoalsAndAssetViewOption
                         ? state.viewSection
                         : ViewSection.assets,
+                    state is GoalsAndAssetsDisplayOption
+                        ? state.displayOption
+                        : DisplayOption.grid,
                   ),
                 ],
               ),
@@ -110,13 +119,17 @@ class _GoalsAndAssetsContainerState extends State<GoalsAndAssetsContainer> {
   }
 }
 
-Widget viewSectionWidget(ViewSection viewSection) {
+Widget viewSectionWidget(ViewSection viewSection, DisplayOption displayOption) {
   switch (viewSection) {
     case ViewSection.assets:
-      return const UserAssetsSection();
+      return UserAssetsSection(
+        displayOption: displayOption,
+      );
     case ViewSection.goals:
       return const UserGoalsSection();
     default:
-      return const UserAssetsSection();
+      return UserAssetsSection(
+        displayOption: displayOption,
+      );
   }
 }

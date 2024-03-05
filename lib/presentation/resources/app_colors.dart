@@ -14,4 +14,5 @@ class AppColors {
   static const Color lightGrey = Color(0xFFf6f7f9);
   static const Color dividerGrey = Color(0xFFf3f3f3);
   static const Color lightBlue = Color(0xFFe7f4fd);
+  static const Color iconBlue = Color(0xFF0970e0);
 }

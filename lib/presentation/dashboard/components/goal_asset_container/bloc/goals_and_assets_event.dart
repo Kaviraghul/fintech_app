@@ -13,9 +13,14 @@ enum ViewSection { assets, goals }
 
 class GoalAndAssetsUserViewEvent extends GoalsAndAssetsEvent {
   final ViewSection viewSection;
-  // final DisplayOption displayOption;
   const GoalAndAssetsUserViewEvent({
     required this.viewSection,
-    // required this.displayOption,
+  });
+}
+
+class GoalAndAssetsDisplayOntionChangedEvent extends GoalsAndAssetsEvent {
+  final DisplayOption displayOption;
+  const GoalAndAssetsDisplayOntionChangedEvent({
+    required this.displayOption,
   });
 }

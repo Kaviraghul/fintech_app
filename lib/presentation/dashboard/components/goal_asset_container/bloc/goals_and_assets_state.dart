@@ -9,14 +9,22 @@ sealed class GoalsAndAssetsState extends Equatable {
 
 final class GoalsAndAssetsInitial extends GoalsAndAssetsState {}
 
-class GoalsAndAssetsDisplayOption extends GoalsAndAssetsState {
-  // final DisplayOption displayOption;
+class GoalsAndAssetViewOption extends GoalsAndAssetsState {
   final ViewSection viewSection;
-  const GoalsAndAssetsDisplayOption({
-    // required this.displayOption,
+  const GoalsAndAssetViewOption({
     required this.viewSection,
   });
 
   @override
   List<Object> get props => [viewSection];
+}
+
+class GoalsAndAssetsDisplayOption extends GoalsAndAssetsState {
+  final DisplayOption displayOption;
+  const GoalsAndAssetsDisplayOption({
+    required this.displayOption,
+  });
+
+  @override
+  List<Object> get props => [displayOption];
 }
