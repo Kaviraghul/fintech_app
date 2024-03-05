@@ -19,12 +19,22 @@ class GoalsAndAssetViewOption extends GoalsAndAssetsState {
   List<Object> get props => [viewSection];
 }
 
-class GoalsAndAssetsDisplayOption extends GoalsAndAssetsState {
-  final DisplayOption displayOption;
-  const GoalsAndAssetsDisplayOption({
+class DisplayGridOrListViewOption extends GoalsAndAssetsState {
+  final bool displayOption;
+  const DisplayGridOrListViewOption({
     required this.displayOption,
   });
 
   @override
   List<Object> get props => [displayOption];
+}
+
+class GoalAndAssetsShowMoreItemsOption extends GoalsAndAssetsState {
+  final bool showMore;
+  const GoalAndAssetsShowMoreItemsOption({
+    required this.showMore,
+  });
+
+  @override
+  List<Object> get props => [showMore];
 }

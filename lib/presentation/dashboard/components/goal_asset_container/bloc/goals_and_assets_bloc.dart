@@ -11,9 +11,12 @@ class GoalsAndAssetsBloc
       emit(GoalsAndAssetViewOption(viewSection: event.viewSection));
     });
 
-    on<GoalAndAssetsDisplayOntionChangedEvent>((event, emit) {
-      print(event.displayOption);
-      emit(GoalsAndAssetsDisplayOption(displayOption: event.displayOption));
+    on<DisplayGridOrListViewEvent>((event, emit) {
+      emit(DisplayGridOrListViewOption(displayOption: event.displayOption));
+    });
+
+    on<GoalAndAssetsShowMoreItemsEvent>((event, emit) {
+      emit(GoalAndAssetsShowMoreItemsOption(showMore: event.showMore));
     });
   }
 }

@@ -5,17 +5,24 @@ import 'package:flutter/material.dart';
 
 class UserAssetsSection extends StatelessWidget {
   final DisplayOption displayOption;
-  const UserAssetsSection({super.key, this.displayOption = DisplayOption.grid});
+  final bool? showMore;
+  const UserAssetsSection(
+      {super.key, this.displayOption = DisplayOption.grid, this.showMore});
 
   @override
   Widget build(BuildContext context) {
+    print(displayOption);
     switch (displayOption) {
       case DisplayOption.grid:
-        return const GridViewOptionWidget();
-      case DisplayOption.grid:
+        return GridViewOptionWidget(
+          showMore: showMore,
+        );
+      case DisplayOption.liner:
         return const LinearViewOptionWidget();
       default:
-        return const GridViewOptionWidget();
+        return GridViewOptionWidget(
+          showMore: showMore,
+        );
     }
   }
 }

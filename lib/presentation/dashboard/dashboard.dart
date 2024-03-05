@@ -16,8 +16,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
     return SingleChildScrollView(
       child: ClipRRect(
         clipBehavior: Clip.hardEdge,
-        borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
         child: Column(
           children: [
             Container(
@@ -26,7 +28,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             ),
             GestureDetector(
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 color: AppColors.darkNavyBlue,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,7 +64,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             SizedBox(
               height: 25,
             ),
-            GoalsAndAssetsContainer(),
+            const GoalsAndAssetsContainer(),
           ],
         ),
       ),

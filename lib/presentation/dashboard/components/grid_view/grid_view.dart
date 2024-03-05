@@ -3,7 +3,8 @@ import 'package:fintech_app/presentation/resources/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class GridViewOptionWidget extends StatelessWidget {
-  const GridViewOptionWidget({super.key});
+  final bool? showMore;
+  const GridViewOptionWidget({super.key, this.showMore = false});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class GridViewOptionWidget extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
       ),
-      itemCount: assetsGridTitles.length,
+      itemCount: showMore! ? assetsGridTitles.length : 6,
       itemBuilder: (BuildContext context, int index) {
         return Card(
           shadowColor: AppColors.transparent,

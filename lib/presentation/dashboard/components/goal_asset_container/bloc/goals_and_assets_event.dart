@@ -18,9 +18,16 @@ class GoalAndAssetsUserViewEvent extends GoalsAndAssetsEvent {
   });
 }
 
-class GoalAndAssetsDisplayOntionChangedEvent extends GoalsAndAssetsEvent {
-  final DisplayOption displayOption;
-  const GoalAndAssetsDisplayOntionChangedEvent({
+class DisplayGridOrListViewEvent extends GoalsAndAssetsEvent {
+  final bool displayOption;
+  const DisplayGridOrListViewEvent({
     required this.displayOption,
+  });
+}
+
+class GoalAndAssetsShowMoreItemsEvent extends GoalsAndAssetsEvent {
+  final bool showMore;
+  const GoalAndAssetsShowMoreItemsEvent({
+    required this.showMore,
   });
 }
