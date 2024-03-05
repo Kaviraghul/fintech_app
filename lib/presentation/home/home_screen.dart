@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: BlocBuilder<BottomNavBarBloc, BottomNavBarState>(
           builder: (context, state) {
             return _getHomeChildComponent(
-                state is BottomNavBarIndex ? state.index : 2);
+                state is BottomNavBarIndex ? state.index : 0);
           },
         ),
       ),
