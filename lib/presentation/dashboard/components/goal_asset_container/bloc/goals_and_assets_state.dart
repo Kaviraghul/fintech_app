@@ -7,7 +7,17 @@ sealed class GoalsAndAssetsState extends Equatable {
   List<Object> get props => [];
 }
 
-final class GoalsAndAssetsInitial extends GoalsAndAssetsState {}
+class GoalsAndAssetsInitial extends GoalsAndAssetsState {
+  final GoalsAndAssetViewOption viewOption;
+
+  const GoalsAndAssetsInitial({
+    this.viewOption =
+        const GoalsAndAssetViewOption(viewSection: ViewSection.assets),
+  });
+
+  @override
+  List<Object> get props => [viewOption];
+}
 
 class GoalsAndAssetViewOption extends GoalsAndAssetsState {
   final ViewSection viewSection;

@@ -6,7 +6,7 @@ part 'goals_and_assets_state.dart';
 
 class GoalsAndAssetsBloc
     extends Bloc<GoalsAndAssetsEvent, GoalsAndAssetsState> {
-  GoalsAndAssetsBloc() : super(GoalsAndAssetsInitial()) {
+  GoalsAndAssetsBloc() : super(const GoalsAndAssetsInitial()) {
     on<GoalAndAssetsUserViewEvent>((event, emit) {
       emit(GoalsAndAssetViewOption(viewSection: event.viewSection));
     });

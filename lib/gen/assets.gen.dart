@@ -10,6 +10,9 @@
 class $AssetsLottieGen {
   const $AssetsLottieGen();
 
+  /// File path: assets/lottie/money_growth_lottie.json
+  String get moneyGrowthLottie => 'assets/lottie/money_growth_lottie.json';
+
   /// File path: assets/lottie/onBoarding_1.json
   String get onBoarding1 => 'assets/lottie/onBoarding_1.json';
 
@@ -20,7 +23,8 @@ class $AssetsLottieGen {
   String get onBoarding3 => 'assets/lottie/onBoarding_3.json';
 
   /// List of all assets
-  List<String> get values => [onBoarding1, onBoarding2, onBoarding3];
+  List<String> get values =>
+      [moneyGrowthLottie, onBoarding1, onBoarding2, onBoarding3];
 }
 
 class Assets {

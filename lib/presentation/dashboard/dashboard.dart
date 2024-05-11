@@ -1,6 +1,10 @@
+import 'package:fintech_app/presentation/commonWidgets/data_safety/data_safety_widget.dart';
+import 'package:fintech_app/presentation/commonWidgets/info_card/info_card.dart';
 import 'package:fintech_app/presentation/dashboard/components/goal_asset_container/goals_and_assets_container.dart';
+import 'package:fintech_app/presentation/dashboard/components/my_sip/my_sip_component.dart';
+import 'package:fintech_app/presentation/resources/app_buttons.dart';
 import 'package:fintech_app/presentation/resources/app_colors.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:fintech_app/presentation/resources/app_values.dart';
 import 'package:flutter/material.dart';
 
 class DashBoardScreen extends StatefulWidget {
@@ -51,7 +55,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       ],
                     ),
                     InkWell(
-                      child: Icon(
+                      child: const Icon(
                         Icons.keyboard_arrow_right,
                         color: AppColors.white,
                       ),
@@ -61,10 +65,62 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             const GoalsAndAssetsContainer(),
+            const SizedBox(
+              height: 40,
+            ),
+            const MySipComponent(),
+            const SizedBox(
+              height: 30,
+            ),
+            InfoCard(
+              title: "Available Balance",
+              childWidget: Container(
+                padding: const EdgeInsets.all(AppValues.s13),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        AppButtons.containerButton(
+                          text: "Banks",
+                          onTap: () {},
+                          active: true,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        AppButtons.containerButton(
+                          text: "Ind Wallet",
+                          onTap: () {},
+                          active: true,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        AppButtons.containerButton(
+                          text: "US Wallet",
+                          onTap: () {},
+                          active: true,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 13,
+                    ),
+                    const Divider(
+                      color: AppColors.lightGrey,
+                    )
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            const DataSafetyWidget(),
           ],
         ),
       ),

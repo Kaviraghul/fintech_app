@@ -4,9 +4,8 @@ import 'package:fintech_app/presentation/dashboard/components/user_goals/user_go
 import 'package:fintech_app/presentation/resources/app_buttons.dart';
 import 'package:fintech_app/presentation/resources/app_colors.dart';
 import 'package:fintech_app/presentation/resources/app_values.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/material.dart';
 
 class GoalsAndAssetsContainer extends StatefulWidget {
   const GoalsAndAssetsContainer({super.key});
@@ -41,29 +40,33 @@ class _GoalsAndAssetsContainerState extends State<GoalsAndAssetsContainer> {
                     children: [
                       Row(
                         children: [
-                          AppButtons.getTextButton(
-                              onTap: () {
-                                context.read<GoalsAndAssetsBloc>().add(
-                                      const GoalAndAssetsUserViewEvent(
-                                        viewSection: ViewSection.assets,
-                                      ),
-                                    );
-                              },
-                              text: "Assets",
-                              active: false),
+                          AppButtons.containerButton(
+                            onTap: () {
+                              context.read<GoalsAndAssetsBloc>().add(
+                                    const GoalAndAssetsUserViewEvent(
+                                      viewSection: ViewSection.assets,
+                                    ),
+                                  );
+                            },
+                            text: "Assets",
+                            active: state is GoalsAndAssetViewOption &&
+                                state.viewSection == ViewSection.assets,
+                          ),
                           const SizedBox(
                             width: 10,
                           ),
-                          AppButtons.getTextButton(
-                              onTap: () {
-                                context.read<GoalsAndAssetsBloc>().add(
-                                      const GoalAndAssetsUserViewEvent(
-                                        viewSection: ViewSection.goals,
-                                      ),
-                                    );
-                              },
-                              text: "Goals",
-                              active: false),
+                          AppButtons.containerButton(
+                            onTap: () {
+                              context.read<GoalsAndAssetsBloc>().add(
+                                    const GoalAndAssetsUserViewEvent(
+                                      viewSection: ViewSection.goals,
+                                    ),
+                                  );
+                            },
+                            text: "Goals",
+                            active: state is GoalsAndAssetViewOption &&
+                                state.viewSection == ViewSection.goals,
+                          ),
                         ],
                       ),
                       Switch.adaptive(
@@ -74,36 +77,7 @@ class _GoalsAndAssetsContainerState extends State<GoalsAndAssetsContainer> {
                           context.read<GoalsAndAssetsBloc>().add(
                               DisplayGridOrListViewEvent(displayOption: value));
                         },
-                      )
-
-                      // Switch.adaptive(
-                      //   // thumbIcon: MaterialStateProperty.resolveWith<Icon?>(
-                      //   //     (Set<MaterialState> states) {
-                      //   //   if (states.contains(MaterialState.disabled)) {
-                      //   //     return const Icon(
-                      //   //       Icons.menu,
-                      //   //       color: Colors.white,
-                      //   //       size: AppValues.s18,
-                      //   //     );
-                      //   //   } else {
-                      //   //     return const Icon(
-                      //   //       Icons.access_alarm,
-                      //   //       color: Colors.white,
-                      //   //       size: AppValues.s18,
-                      //   //     );
-                      //   //   }
-                      //   // }),
-
-                      //   value: state is DisplayGridOrListViewOption &&
-                      //       state.displayOption == DisplayOption.grid,
-                      //   onChanged: (bool value) {
-                      //     context.read<GoalsAndAssetsBloc>().add(
-                      //           DisplayGridOrListViewEvent(
-                      //             displayOption: value,
-                      //           ),
-                      //         );
-                      //   },
-                      // ),
+                      ),
                     ],
                   ),
                   const Divider(
@@ -156,7 +130,10 @@ class _GoalsAndAssetsContainerState extends State<GoalsAndAssetsContainer> {
                         ],
                       ),
                     ),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
                 ],
               ),
             );
