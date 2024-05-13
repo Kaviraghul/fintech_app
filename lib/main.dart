@@ -31,14 +31,14 @@ class MyApp extends StatelessWidget {
       create: (context) => AuthenticationBloc(userRepository: userRepository),
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
-          late String? intialRoute;
+          late String? initialRoute;
           if (state.authenticationStatus !=
               AuthenticationStatus.authenticated) {
-            intialRoute = Routes.homeScreen;
+            initialRoute = Routes.homeScreen;
           } else {
-            intialRoute = Routes.userAuthScreen;
+            initialRoute = Routes.userAuthScreen;
           }
-          return MyAppView(intLocation: intialRoute);
+          return MyAppView(intLocation: initialRoute);
         },
       ),
     );
