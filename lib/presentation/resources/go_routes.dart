@@ -1,4 +1,4 @@
-import 'package:fintech_app/presentation/authentication/authentication_screen.dart';
+import 'package:fintech_app/presentation/authentication/phone_number_entry/phone_number_entry_page.dart';
 import 'package:fintech_app/presentation/authentication/sign_in/sign_in_screen.dart';
 import 'package:fintech_app/presentation/authentication/sign_up/sign_up_screen.dart';
 import 'package:fintech_app/presentation/credit/credit_screen.dart';
@@ -42,7 +42,7 @@ class AppRoutes {
         GoRoute(
           path: Routes.userAuthScreen,
           builder: (BuildContext context, GoRouterState state) {
-            return const UserAuthentication();
+            return const PhoneNumberEntryPage();
           },
         ),
         GoRoute(
