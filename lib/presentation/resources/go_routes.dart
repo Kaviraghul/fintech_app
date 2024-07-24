@@ -1,3 +1,4 @@
+import 'package:fintech_app/presentation/authentication/phone_number_authentication/view/phone_number_authentication_page.dart';
 import 'package:fintech_app/presentation/authentication/phone_number_entry/phone_number_entry_page.dart';
 import 'package:fintech_app/presentation/authentication/sign_in/sign_in_screen.dart';
 import 'package:fintech_app/presentation/authentication/sign_up/sign_up_screen.dart';
@@ -16,6 +17,7 @@ class Routes {
   static String userAuthScreen = '/user_auth';
   static String signInScreen = '/signIn';
   static String signUpScreen = '/signUp';
+  static String phoneNumberAuthScreen = '/phoneNumberAuth';
   static String homeScreen = '/home';
   // sub routes
   static String dashboardSection = 'dashboard_section';
@@ -31,12 +33,20 @@ class AppRoutes {
 
   AppRoutes({required this.initRoute}) {
     router = GoRouter(
-      initialLocation: initRoute ?? '/',
+      // initialLocation: initRoute ?? '/',
+      initialLocation: Routes.phoneNumberAuthScreen,
+
       routes: <RouteBase>[
         GoRoute(
           path: Routes.onboardingScreen,
           builder: (BuildContext context, GoRouterState state) {
             return const OnBoardingScreen();
+          },
+        ),
+        GoRoute(
+          path: Routes.phoneNumberAuthScreen,
+          builder: (BuildContext context, GoRouterState state) {
+            return const PhoneNumberAuthenticationPage();
           },
         ),
         GoRoute(
